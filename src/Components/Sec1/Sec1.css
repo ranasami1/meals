@@ -1,0 +1,45 @@
+:root {
+    --mainText: #FFFFD9;
+  }
+.main{
+    background-image:url("./../assets/flat-lay-local-food-meal-assortment-with-copy-space.jpg");
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    
+}
+.main .intro{
+    min-height: 500px;
+    display: flex;
+    align-items: start;
+    padding: 50px;
+   
+}
+.main .intro .text{
+    max-width: 450px;
+    width: 450px;
+    margin-left:60%;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.main .intro .text h1{
+   color: var(--mainText);
+}
+.main .intro .text p{
+    display: block;
+    color: var(--mainText);
+}
+@media (max-width :450px ){
+    .main .intro .text p{
+        display: none;
+    }
+    .main .intro .text{
+       display: flex;
+       align-items: center;
+       margin: auto;
+       gap: 20px;
+    }
+
+}

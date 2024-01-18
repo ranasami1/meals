@@ -1,6 +1,6 @@
 .Container .category{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: flex;
+    max-width: 90%;
+    flex-wrap: wrap;
     margin: auto;
-    width: 90%;
 }

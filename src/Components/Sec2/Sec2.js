@@ -1,22 +1,38 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './Sec2.css';
 export function Sec2(){
+    const [meal,setMeal] = useState([])
+    const [arr,setArr] = useState([])
+    function Categories(){
+        axios.get("https://www.themealdb.com/api/json/v1/1/categories.php")
+        .then((response)=>{setMeal(response.data.categories);
+            console.log(meal);
+        })
+    }
+ 
+    useEffect(() =>{
+        Categories();
+    },[])
     return(
        <div className='Container'>
         <h1>Our Categories</h1>
-        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
+        <div className='category'>
+       {meal?.map((item,key)=>{
+        return(
+            <Card key={key} style={{ width: '18rem',margin: "10px"}}>
+            <Card.Img variant="top" src={item.strCategoryThumb} />
             <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                    Some quick example text to build on the card title and make up the
-                    bulk of the card's content.
-                </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+                <Card.Title>{item.strCategory}</Card.Title>
+                <Card.Text>{item.strCategoryDescription.substr(0,50)}</Card.Text>
+                <Button variant="warning">Explore Menue</Button>
             </Card.Body>
-        </Card>
+            </Card>
+    )
+       })}
+        </div>   
        </div>
     )
     

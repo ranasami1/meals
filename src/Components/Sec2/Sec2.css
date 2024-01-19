@@ -1,5 +1,6 @@
 .Container .category{
     display: flex;
+    justify-content: space-between;
     max-width: 90%;
     flex-wrap: wrap;
     margin: auto;

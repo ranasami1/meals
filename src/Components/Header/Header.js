@@ -6,7 +6,7 @@ import './Header.css'
 function Header() {
   return (
     <>
-      <Navbar className="nav" bg="dark" data-bs-theme="dark">
+      <Navbar className='Navbar' bg="dark" data-bs-theme="dark">
         <Container>
           <Navbar.Brand href="/"><img src={logo} style={{
             width:"45px",

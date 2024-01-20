@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import './Menue.css';
 import Card from 'react-bootstrap/Card';
 export function Menue(){
-    const [menu,setMenu] = useState([])
+    const [menu,setMenu] = useState([]);
     function menue(){
-            fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Chicken')
+            fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=Chicken")
             .then((res)=>res.json())
             .then((data)=>{
                 setMenu(data.meals)
@@ -16,6 +16,9 @@ export function Menue(){
     },[])
     return(
         <div className="menue">
+            <h1 className='title' style={{
+                backgroundColor: "#ffc008",
+                padding:"10px"}}>Our Meals</h1>
             <div className="container">
                 {menu.map((item,key)=>{
                     return(

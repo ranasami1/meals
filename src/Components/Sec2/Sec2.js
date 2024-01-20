@@ -18,9 +18,9 @@ export function Sec2(){
     },[])
     return(
        <div className='Container'>
-        <h1>Our Categories</h1>
+        <h1 className='title'>Top Categories</h1>
         <div className='category'>
-       {meal?.map((item,key)=>{
+       {meal?.slice(1,5).map((item,key)=>{
         return(
             <Card key={key} style={{ width: '18rem',margin: "10px"}}>
             <Card.Img variant="top" src={item.strCategoryThumb} />

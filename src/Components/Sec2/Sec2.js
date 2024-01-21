@@ -18,7 +18,7 @@ export function Sec2(){
     },[])
     return(
        <div className='Container'>
-        <h1 className='title'>Top Categories</h1>
+        <h1 className='title tracking-in-expand'>Top Categories</h1>
         <div className='category'>
        {meal?.slice(1,5).map((item,key)=>{
         return(

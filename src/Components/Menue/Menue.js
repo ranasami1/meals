@@ -16,7 +16,7 @@ export function Menue(){
     },[])
     return(
         <div className="menue">
-            <h1 className='title' style={{
+            <h1 className='title tracking-in-expand' style={{
                 backgroundColor: "#ffc008",
                 padding:"10px"}}>Our Meals</h1>
             <div className="container">

@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 export function Menue(){
     const [menu,setMenu] = useState([]);
     function menue(){
-            fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=Chicken")
+            fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef")
             .then((res)=>res.json())
             .then((data)=>{
                 setMenu(data.meals)

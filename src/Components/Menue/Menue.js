@@ -3,7 +3,8 @@ import './Menue.css';
 import Card from 'react-bootstrap/Card';
 import {Spiner} from '../spinner/spinner';
 import { Button } from 'react-bootstrap';
-export function Menue({cat,loading,setLoading}){
+import { Recipe } from '../recipe/recipe';
+export function Menue({cat,loading,setLoading,mealName,mealN}){
     const [menu,setMenu] = useState([]);
     function menue(){
             fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`)
@@ -28,12 +29,11 @@ export function Menue({cat,loading,setLoading}){
                             <Card.Img variant="top" src={item.strMealThumb} />
                             <Card.Body>
                                 <Card.Title>{item.strMeal}</Card.Title>
-                                <Card.Text>100$</Card.Text>
-                                <Button variant="warning">Add to cart</Button>
+                                <Button variant="warning" onClick={()=>mealName(item.strMeal)}>Check recipe</Button>
                             </Card.Body>
                         </Card>
                     )
-                })} 
+                })} <Recipe mealN={mealN}/>
                 
             </div>
         </div>

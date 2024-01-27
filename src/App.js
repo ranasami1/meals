@@ -9,6 +9,8 @@ function App() {
   const [cat,setCat] = useState("Beef")
   const [filterm , setFilterm] = useState([])
   const [loading , setLoading] = useState(true);
+  const [mealN,setMealN] = useState([]);
+  const [name,setName] = useState("");
   function filterFunction(i){
     setCat(i)
     console.log(i)
@@ -17,13 +19,19 @@ function App() {
     console.log(filterm);
     setLoading(false)        
 } 
+function mealName(i){
+  setName(i)
+  axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`)
+  .then((res)=>setMealN(res.data.meals[0]));
+  console.log(mealN);
+}
   return (
     <div className="App">
     <Header/>
     <Router>
       <Routes>
         <Route path='/' element={<Home filterFunction={filterFunction} loading={loading} setLoading={setLoading}/>}/>
-        <Route path='/menue' element={<Menue filterFunction={filterFunction} cat={cat}  loading={loading} setLoading={setLoading}/>}/>
+        <Route path='/menue' element={<Menue filterFunction={filterFunction} cat={cat}  loading={loading} setLoading={setLoading} mealName={mealName} mealN={mealN}/>}/>
       </Routes>
     </Router>
     </div>

@@ -1,3 +1,6 @@
+:root {
+  --mainText: #FFFFD9;
+}
 .App {
   text-align: center;
 }

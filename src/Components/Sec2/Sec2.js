@@ -42,7 +42,7 @@ export function Sec2(){
             </Card.Body>
             </Card>
     )
-       })}:<Spiner/>
+       })}<Spiner/>
         </div>   
        </div>
     )

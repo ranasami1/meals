@@ -30,7 +30,7 @@ export function Menue(){
                             </Card.Body>
                         </Card>
                     )
-                })} :<Spiner/> 
+                })}<Spiner/> 
                 
             </div>
         </div>

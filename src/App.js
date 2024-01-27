@@ -6,7 +6,7 @@ import { Menue } from './Components/Menue/Menue';
 import { useState } from 'react';
 import axios from 'axios';
 function App() {
-  const [cat,setCat] = useState("")
+  const [cat,setCat] = useState("Beef")
   const [filterm , setFilterm] = useState([])
   function filterFunction(i){
     setCat(i)

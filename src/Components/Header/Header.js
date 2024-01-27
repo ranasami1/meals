@@ -14,6 +14,7 @@ function Header() {
           }}></img></Navbar.Brand>
           <Nav>
             <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/menue">Menue</Nav.Link>
             <Nav.Link href="/aboutus">About Us</Nav.Link>
           </Nav>
         </Container>

@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react';
 import './Menue.css';
 import Card from 'react-bootstrap/Card';
 import {Spiner} from '../spinner/spinner';
-export function Menue({cat}){
+export function Menue({cat,loading,setLoading}){
     const [menu,setMenu] = useState([]);
     function menue(){
             fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`)
             .then((res)=>res.json())
             .then((data)=>{
                 setMenu(data.meals)
+                setLoading(false)
             })
         } 
     useEffect(()=>{
@@ -20,7 +21,7 @@ export function Menue({cat}){
                 backgroundColor: "#ffc008",
                 padding:"10px"}}>Our Meals</h1>
             <div className="container">
-                {menu?menu.map((item,key)=>{
+                {loading?<Spiner/>:menu.map((item,key)=>{
                     return(
                         <Card key={key} style={{ width: '15rem',margin: "10px"}}>
                             <Card.Img variant="top" src={item.strMealThumb} />
@@ -29,7 +30,7 @@ export function Menue({cat}){
                             </Card.Body>
                         </Card>
                     )
-                }):<Spiner/>} 
+                })} 
                 
             </div>
         </div>

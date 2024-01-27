@@ -5,12 +5,13 @@ import Card from 'react-bootstrap/Card';
 import './Sec2.css';
 import { Link } from 'react-router-dom';
 import { Spiner } from '../spinner/spinner';
-export function Sec2({filterFunction}){
+export function Sec2({filterFunction,loading,setLoading}){
     const [meal,setMeal] = useState([])
     function Categories(){
         axios.get("https://www.themealdb.com/api/json/v1/1/categories.php")
         .then((response)=>{setMeal(response.data.categories);
             console.log(meal);
+            setLoading(false);
         })
     }
     useEffect(() =>{
@@ -20,7 +21,7 @@ export function Sec2({filterFunction}){
        <div className='Container'>
         <h1 className='title tracking-in-expand'>Categories</h1>
         <div className='category'>
-            {meal? meal.slice(0,12).map((item,key)=>{
+            {loading?<Spiner/>:meal.slice(0,12).map((item,key)=>{
                 return(
                 <Card key={key} style={{ width: '18rem',margin: "10px"}}>
                 <Card.Img variant="top" src={item.strCategoryThumb} />
@@ -33,7 +34,7 @@ export function Sec2({filterFunction}){
                 </Card.Body>
                 </Card>
                 )
-            }):<Spiner/>}
+            })}
         </div>   
        </div>
     )

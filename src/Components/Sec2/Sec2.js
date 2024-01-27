@@ -29,7 +29,7 @@ export function Sec2(){
        <div className='Container'>
         <h1 className='title tracking-in-expand'>Categories</h1>
         <div className='category'>
-       {meal?.slice(0,12).map((item,key)=>{
+       {meal?meal.slice(0,12).map((item,key)=>{
         return(
             <Card key={key} style={{ width: '18rem',margin: "10px"}}>
             <Card.Img variant="top" src={item.strCategoryThumb} />
@@ -42,7 +42,7 @@ export function Sec2(){
             </Card.Body>
             </Card>
     )
-       })}<Spiner/>
+       }):<Spiner/>}
         </div>   
        </div>
     )

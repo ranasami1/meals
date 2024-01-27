@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import {Spiner} from '../spinner/spinner';
 import { Button } from 'react-bootstrap';
 import { Recipe } from '../recipe/recipe';
-export function Menue({cat,loading,setLoading,mealName,mealN}){
+export function Menue({cat,loading,setLoading,mealName,mealN,isVisible,setIsVisible,handleButtonClick}){
     const [menu,setMenu] = useState([]);
     function menue(){
             fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`)
@@ -13,7 +13,7 @@ export function Menue({cat,loading,setLoading,mealName,mealN}){
                 setMenu(data.meals)
                 setLoading(false)
             })
-        } 
+        }
     useEffect(()=>{
         menue();
     },[])
@@ -33,7 +33,7 @@ export function Menue({cat,loading,setLoading,mealName,mealN}){
                             </Card.Body>
                         </Card>
                     )
-                })} <Recipe mealN={mealN}/>
+                })} <Recipe mealN={mealN} isVisible={isVisible} setIsVisible={setIsVisible} handleButtonClick={handleButtonClick}/>
                 
             </div>
         </div>

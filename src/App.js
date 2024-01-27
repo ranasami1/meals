@@ -11,6 +11,7 @@ function App() {
   const [loading , setLoading] = useState(true);
   const [mealN,setMealN] = useState([]);
   const [name,setName] = useState("");
+  const [isVisible, setIsVisible] = useState(false);
   function filterFunction(i){
     setCat(i)
     console.log(i)
@@ -24,14 +25,19 @@ function mealName(i){
   axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`)
   .then((res)=>setMealN(res.data.meals[0]));
   console.log(mealN);
+  setIsVisible(!isVisible);
 }
+const handleButtonClick = () => {
+  setIsVisible(!isVisible);
+};
+
   return (
     <div className="App">
     <Header/>
     <Router>
       <Routes>
         <Route path='/' element={<Home filterFunction={filterFunction} loading={loading} setLoading={setLoading}/>}/>
-        <Route path='/menue' element={<Menue filterFunction={filterFunction} cat={cat}  loading={loading} setLoading={setLoading} mealName={mealName} mealN={mealN}/>}/>
+        <Route path='/menue' element={<Menue filterFunction={filterFunction} cat={cat}  loading={loading} setLoading={setLoading} mealName={mealName} mealN={mealN} isVisible={isVisible} setIsVisible={setIsVisible} handleButtonClick={handleButtonClick}/>}/>
       </Routes>
     </Router>
     </div>

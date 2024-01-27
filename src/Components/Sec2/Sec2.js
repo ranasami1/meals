@@ -20,20 +20,20 @@ export function Sec2({filterFunction}){
        <div className='Container'>
         <h1 className='title tracking-in-expand'>Categories</h1>
         <div className='category'>
-       {meal?meal.slice(0,12).map((item,key)=>{
-        return(
-            <Card key={key} style={{ width: '18rem',margin: "10px"}}>
-            <Card.Img variant="top" src={item.strCategoryThumb} />
-            <Card.Body>
-                <Card.Title>{item.strCategory}</Card.Title>
-                <Card.Text>{item.strCategoryDescription.substr(0,50)}</Card.Text>
-              <Link to={"/menue"}>
-              <Button variant="warning" onClick={()=>filterFunction(item.strCategory)}>Explore Menue</Button>
-              </Link>
-            </Card.Body>
-            </Card>
-    )
-       }):<Spiner/>}
+            {meal? meal.slice(0,12).map((item,key)=>{
+                return(
+                <Card key={key} style={{ width: '18rem',margin: "10px"}}>
+                <Card.Img variant="top" src={item.strCategoryThumb} />
+                <Card.Body>
+                    <Card.Title>{item.strCategory}</Card.Title>
+                    <Card.Text>{item.strCategoryDescription.substr(0,50)}</Card.Text>
+                <Link to={"/menue"}>
+                <Button variant="warning" onClick={()=>filterFunction(item.strCategory)}>Explore Menue</Button>
+                </Link>
+                </Card.Body>
+                </Card>
+                )
+            }):<Spiner/>}
         </div>   
        </div>
     )

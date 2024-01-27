@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './Menue.css';
 import Card from 'react-bootstrap/Card';
 import {Spiner} from '../spinner/spinner';
+import { Button } from 'react-bootstrap';
 export function Menue({cat,loading,setLoading}){
     const [menu,setMenu] = useState([]);
     function menue(){
@@ -27,6 +28,8 @@ export function Menue({cat,loading,setLoading}){
                             <Card.Img variant="top" src={item.strMealThumb} />
                             <Card.Body>
                                 <Card.Title>{item.strMeal}</Card.Title>
+                                <Card.Text>100$</Card.Text>
+                                <Button variant="warning">Add to cart</Button>
                             </Card.Body>
                         </Card>
                     )

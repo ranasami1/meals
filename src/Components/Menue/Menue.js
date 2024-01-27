@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Menue.css';
 import Card from 'react-bootstrap/Card';
+import {Spiner} from '../spinner/spinner';
 export function Menue(){
     const [menu,setMenu] = useState([]);
     function menue(){
@@ -20,7 +21,7 @@ export function Menue(){
                 backgroundColor: "#ffc008",
                 padding:"10px"}}>Our Meals</h1>
             <div className="container">
-                {menu.map((item,key)=>{
+                {menu?.map((item,key)=>{
                     return(
                         <Card key={key} style={{ width: '15rem',margin: "10px"}}>
                             <Card.Img variant="top" src={item.strMealThumb} />
@@ -29,8 +30,7 @@ export function Menue(){
                             </Card.Body>
                         </Card>
                     )
-                })
-                }
+                })} :<Spiner/> 
                 
             </div>
         </div>

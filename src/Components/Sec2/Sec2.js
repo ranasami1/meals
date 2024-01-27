@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import './Sec2.css';
 import { Link } from 'react-router-dom';
 import { Menue } from '../Menue/Menue';
+import { Spiner } from '../spinner/spinner';
 export function Sec2(){
     const [meal,setMeal] = useState([])
     const [cat,setCat] = useState("")
@@ -41,7 +42,7 @@ export function Sec2(){
             </Card.Body>
             </Card>
     )
-       })}
+       })}:<Spiner/>
         </div>   
        </div>
     )

@@ -2,16 +2,15 @@ import { useEffect, useState } from 'react';
 import './Menue.css';
 import Card from 'react-bootstrap/Card';
 import {Spiner} from '../spinner/spinner';
-export function Menue(){
+export function Menue({cat}){
     const [menu,setMenu] = useState([]);
     function menue(){
-            fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef")
+            fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`)
             .then((res)=>res.json())
             .then((data)=>{
                 setMenu(data.meals)
             })
-        }
-    
+        } 
     useEffect(()=>{
         menue();
     },[])

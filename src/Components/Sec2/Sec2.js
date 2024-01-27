@@ -4,24 +4,15 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './Sec2.css';
 import { Link } from 'react-router-dom';
-import { Menue } from '../Menue/Menue';
 import { Spiner } from '../spinner/spinner';
-export function Sec2(){
+export function Sec2({filterFunction}){
     const [meal,setMeal] = useState([])
-    const [cat,setCat] = useState("")
-    const [filterm , setFilterm] = useState([])
     function Categories(){
         axios.get("https://www.themealdb.com/api/json/v1/1/categories.php")
         .then((response)=>{setMeal(response.data.categories);
             console.log(meal);
         })
     }
-    function filterFunction(i){
-        setCat(i)
-        axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`)
-        .then((res)=>setFilterm(res.data.meals));
-        console.log(filterm);        
-    } 
     useEffect(() =>{
         Categories();
     },[])

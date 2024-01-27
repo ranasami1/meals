@@ -1,14 +1,14 @@
 .container .recipe{
     background-color:hsla(220, 5%, 23%, 0.781);
     max-width: 450px;
-    width: 320px;
+    width: 300px;
     max-height: auto;
     height: 400px;
     color:var(--mainText);
     padding: 10px;
     border-radius: 10px;
     position: absolute;
-    top: 200px;
+    top: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,10 +17,10 @@
     position: fixed;
 }
 .container .close{
-    width: 45px;
+    width: 40px;
     position: relative;
-    bottom: 85px;
-    left: 160px;
+    bottom: 87px;
+    left: 140px;
 }
 .container .close:hover{
     cursor: pointer;

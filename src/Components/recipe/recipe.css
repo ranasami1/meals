@@ -2,7 +2,8 @@
     margin: auto;
     padding: 10px;
     position: absolute;
-    top: 180px;
+    top: 160px;
+    position: fixed;
 }
 .container-recipe .recipe{
     background-color:hsla(220, 5%, 23%, 0.781);

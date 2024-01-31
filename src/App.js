@@ -25,11 +25,15 @@ function App() {
   axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`)
   .then((res)=>setMealN(res.data.meals[0]));
   console.log(name);
-  setIsVisible(!isVisible);
-  
+  if(isVisible != true){
+    setIsVisible(!isVisible);
+  }
 }
 const handleButtonClick = () => {
-  setIsVisible(!isVisible);
+  if(isVisible==true){
+    setIsVisible(!isVisible);
+  }
+  
 };
 
   return (

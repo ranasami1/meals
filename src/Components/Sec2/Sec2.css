@@ -4,6 +4,7 @@
     max-width: 90%;
     flex-wrap: wrap;
     margin: auto;
+    height: auto;
 }
 .Container .title{
     background-color: #ffc008;

@@ -13,19 +13,20 @@ function App() {
   const [name,setName] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   function filterFunction(i){
-    setCat(i)
-    console.log(i)
+    setCat(i);
     axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`)
     .then((res)=>setFilterm(res.data.meals));
     console.log(filterm);
-    setLoading(false)        
+    setLoading(false);      
 } 
-function mealName(i){
-  setName(i)
+  function mealName(i){
+  setName(i);
+  console.log(name);
   axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`)
   .then((res)=>setMealN(res.data.meals[0]));
-  console.log(mealN);
+  console.log(name);
   setIsVisible(!isVisible);
+  
 }
 const handleButtonClick = () => {
   setIsVisible(!isVisible);

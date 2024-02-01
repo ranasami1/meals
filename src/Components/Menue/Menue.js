@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState ,useContext} from 'react';
 import './Menue.css';
 import Card from 'react-bootstrap/Card';
 import {Spiner} from '../spinner/spinner';
 import { Button } from 'react-bootstrap';
 import { Recipe } from '../recipe/recipe';
-export function Menue({cat,loading,setLoading,mealName,mealN,isVisible,setIsVisible,handleButtonClick}){
+import  { AppContext } from "../../App";
+export function Menue(){
+    const {setLoading,loading,cat,mealName} = useContext(AppContext) ;
     const [menu,setMenu] = useState([]);
     function menue(){
             fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`)
@@ -19,11 +21,9 @@ export function Menue({cat,loading,setLoading,mealName,mealN,isVisible,setIsVisi
     },[])
     return(
         <div className="menue">
-            <h1 className='title tracking-in-expand' style={{
-                backgroundColor: "#ffc008",
-                padding:"10px"}}>Our Meals</h1>
+            <h1 className='title tracking-in-expand'>Our Meals</h1>
             <div className="container">
-                {loading?<Spiner/>:menu.map((item,key)=>{
+                {loading?<Spiner/>:menu?.map((item,key)=>{
                     return(
                         <Card key={key} style={{ width: '15rem',margin: "10px"}}>
                             <Card.Img variant="top" src={item.strMealThumb} />
@@ -33,7 +33,7 @@ export function Menue({cat,loading,setLoading,mealName,mealN,isVisible,setIsVisi
                             </Card.Body>
                         </Card>
                     )
-                })} <Recipe mealN={mealN} isVisible={isVisible} setIsVisible={setIsVisible} handleButtonClick={handleButtonClick}/>
+                })} <Recipe/>
                 
             </div>
         </div>

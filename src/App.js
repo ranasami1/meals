@@ -3,8 +3,9 @@ import Header from './Components/Header/Header';
 import { BrowserRouter as Router , Routes , Route} from 'react-router-dom';
 import { Home } from './Components/Home/Home';
 import { Menue } from './Components/Menue/Menue';
-import { useState } from 'react';
+import { useState,createContext} from 'react';
 import axios from 'axios';
+export const AppContext = createContext();
 function App() {
   const [cat,setCat] = useState("Beef")
   const [filterm , setFilterm] = useState([])
@@ -14,6 +15,7 @@ function App() {
   const [isVisible, setIsVisible] = useState(false);
   function filterFunction(i){
     setCat(i);
+    console.log(cat);
     axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`)
     .then((res)=>setFilterm(res.data.meals));
     console.log(filterm);
@@ -21,10 +23,8 @@ function App() {
 } 
   function mealName(i){
   setName(i);
-  console.log(name);
   axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`)
   .then((res)=>setMealN(res.data.meals[0]));
-  console.log(name);
   if(isVisible != true){
     setIsVisible(!isVisible);
   }
@@ -32,19 +32,20 @@ function App() {
 const handleButtonClick = () => {
   if(isVisible==true){
     setIsVisible(!isVisible);
-  }
-  
+  } 
 };
-
   return (
     <div className="App">
     <Header/>
+    <AppContext.Provider value={{filterFunction,loading,setLoading,
+      cat,mealName,mealN,isVisible,setIsVisible,handleButtonClick}}>
     <Router>
-      <Routes>
-        <Route path='/' element={<Home filterFunction={filterFunction} loading={loading} setLoading={setLoading}/>}/>
-        <Route path='/menue' element={<Menue filterFunction={filterFunction} cat={cat}  loading={loading} setLoading={setLoading} mealName={mealName} mealN={mealN} isVisible={isVisible} setIsVisible={setIsVisible} handleButtonClick={handleButtonClick}/>}/>
-      </Routes>
+      <Routes>      
+        <Route path='/' element={<Home/>}/>
+        <Route path='/menue' element={<Menue/>}/>
+         </Routes>
     </Router>
+    </AppContext.Provider>
     </div>
   );
 }

@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './Sec2.css';
 import { Link } from 'react-router-dom';
 import { Spiner } from '../spinner/spinner';
-export function Sec2({filterFunction,loading,setLoading}){
+import  { AppContext } from "../../App";
+export function Sec2(){
+    const {setLoading,loading,filterFunction} = useContext(AppContext) ;
     const [meal,setMeal] = useState([])
     function Categories(){
         axios.get("https://www.themealdb.com/api/json/v1/1/categories.php")

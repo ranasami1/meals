@@ -1,14 +1,13 @@
 import './recipe.css';
 import { Button } from 'react-bootstrap';
 import close from "../assets/delete_14025556.png";
-import { useEffect } from 'react';
-export function Recipe({mealN,isVisible,handleButtonClick}){
-    useEffect(()=>{
-        
-    },[])
+import {useContext } from 'react';
+import { AppContext } from '../../App';
+export function Recipe(){
+    const {handleButtonClick,isVisible,mealN} = useContext(AppContext) ;
     return(
         <div className="container-recipe">
-            {isVisible?
+            {isVisible && mealN?
                  <div className='recipe'>
                  <img onClick={()=>handleButtonClick()} className="close" src={close}/>
                      <h3>{mealN?.strMeal}</h3>
@@ -17,8 +16,7 @@ export function Recipe({mealN,isVisible,handleButtonClick}){
                     <a href={mealN?.strYoutube} target='_blank'>
                     <Button variant="warning">Show Video</Button>
                     </a> 
-                 </div>:""}
-           
+                 </div>:""}   
         </div>
     )
 }

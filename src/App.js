@@ -7,11 +7,12 @@ import { useState,createContext} from 'react';
 import axios from 'axios';
 export const AppContext = createContext();
 function App() {
-  const [cat,setCat] = useState("Beef")
-  const [filterm , setFilterm] = useState([])
+  const [cat,setCat] = useState("Beef");
+  const [filterm , setFilterm] = useState([]);
   const [loading , setLoading] = useState(true);
   const [mealN,setMealN] = useState([]);
   const [name,setName] = useState("");
+  const [menu,setMenu] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
   function filterFunction(i){
     setCat(i);
@@ -21,16 +22,17 @@ function App() {
     console.log(filterm);
     setLoading(false);      
 } 
-  function mealName(i){
+async function mealName(i){
   setName(i);
-  axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`)
-  .then((res)=>setMealN(res.data.meals[0]));
+  fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`)
+  .then((res)=>res.json())
+  .then((data)=>setMealN(data.meals[0]));
   if(isVisible != true){
     setIsVisible(!isVisible);
   }
 }
 const handleButtonClick = () => {
-  if(isVisible==true){
+  if(isVisible == true){
     setIsVisible(!isVisible);
   } 
 };
@@ -38,7 +40,7 @@ const handleButtonClick = () => {
     <div className="App">
     <Header/>
     <AppContext.Provider value={{filterFunction,loading,setLoading,
-      cat,mealName,mealN,isVisible,setIsVisible,handleButtonClick}}>
+      cat,mealName,mealN,isVisible,setIsVisible,handleButtonClick,menu,setMenu}}>
     <Router>
       <Routes>      
         <Route path='/' element={<Home/>}/>

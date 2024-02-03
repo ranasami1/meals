@@ -6,14 +6,14 @@ import { Button } from 'react-bootstrap';
 import { Recipe } from '../recipe/recipe';
 import  { AppContext } from "../../App";
 export function Menue(){
-    const {setLoading,loading,cat,mealName} = useContext(AppContext) ;
-    const [menu,setMenu] = useState([]);
+    const {setLoading,loading,cat,mealName,menu,setMenu} = useContext(AppContext) ;
     function menue(){
             fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`)
             .then((res)=>res.json())
             .then((data)=>{
                 setMenu(data.meals)
                 setLoading(false)
+                console.log(menu);
             })
         }
     useEffect(()=>{

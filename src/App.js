@@ -11,7 +11,6 @@ function App() {
   const [filterm , setFilterm] = useState([]);
   const [loading , setLoading] = useState(true);
   const [mealN,setMealN] = useState([]);
-  const [name,setName] = useState("");
   const [menu,setMenu] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
   function filterFunction(i){

@@ -1,9 +1,3 @@
-.rondomDish .dish .R-dish{
-    width: 50%;
-    border: 1px solid black;
-    height: auto;
-    margin: auto;
-}
 .wrap{
     height: 300px;
     display: flex;
@@ -88,3 +82,6 @@
       opacity: 0;
     }
   }
+.hide{
+  display: none;
+}

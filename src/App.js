@@ -23,8 +23,7 @@ function App() {
     setLoading(false);      
 } 
 async function mealName(i){
-  setName(i);
-  fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`)
+  fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${i}`)
   .then((res)=>res.json())
   .then((data)=>setMealN(data.meals[0]));
   if(isVisible != true){
@@ -32,9 +31,10 @@ async function mealName(i){
   }
 }
 const handleButtonClick = () => {
+  setMealN(null)
   if(isVisible == true){
     setIsVisible(!isVisible);
-  } 
+  }
 };
   return (
     <div className="App">

@@ -7,7 +7,7 @@ export function Recipe(){
     const {handleButtonClick,isVisible,mealN} = useContext(AppContext) ;
     return(
         <div className="container-recipe">
-            {isVisible && mealN?
+            {isVisible?
                  <div className='recipe'>
                  <img onClick={()=>handleButtonClick()} className="close" src={close}/>
                      <h3>{mealN?.strMeal}</h3>

@@ -21,7 +21,7 @@ export function Menue(){
     },[])
     return(
         <div className="menue">
-            <h1 className='title tracking-in-expand'>Our Meals</h1>
+            <h1 className='title tracking-in-expand'>{cat} Meals</h1>
             <div className="container">
                 {loading?<Spiner/>:menu?.map((item,key)=>{
                     return(

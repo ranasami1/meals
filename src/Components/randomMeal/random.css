@@ -110,11 +110,11 @@
 }
 .theMeal a:hover{
   transform: scale(1.05);
-  color: #fec109;
+  color:#fec109;
 }
 .theMeal .text-focus-in {
-	-webkit-animation: text-focus-in 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) 1 both;
-	        animation: text-focus-in 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) 1 both;
+	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 1 both;
+	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 1 both;
 }
 @-webkit-keyframes text-focus-in {
   0% {

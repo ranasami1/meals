@@ -7,7 +7,7 @@ export function Sec1(){
         <div className='main'>
             <div className="intro">
                 <div className='text'>
-                <h1>Happy Meal..🍴</h1>
+                <h1 className='happyMeal bounce-out-top'>Happy Meal..🍴</h1>
                 <p>loremExcepteur ea Lorem nisi irure cupidatat eu Lorem 
                     pariatur anim id do esse consequat.
                     Qui cupidatat nulla et ad laborum magna

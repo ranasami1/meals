@@ -90,6 +90,7 @@
     background: url("./../assets/FoodBackgroundNomeat-1.jpg");
     background-repeat: no-repeat;
     background-size:cover;
+    background-position: center;
   }
   .rondomDish .dish{
     margin: auto;

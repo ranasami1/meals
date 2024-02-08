@@ -20,7 +20,6 @@ export  function Random(){
         <div className="rondomDish">
             <h1 className="title tracking-in-expand">Today's dish</h1>
             <div className="dish">
-                
             {isVisible?
             <div className="theMeal scale-up-hor-left">
                <h2 className="text-focus-in">{random.strMeal}</h2>

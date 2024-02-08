@@ -1,5 +1,5 @@
 .wrap{
-    height: 300px;
+    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,17 +82,31 @@
       opacity: 0;
     }
   }
+  .rondomDish{
+    height: auto;
+    margin: 0;
+    height: auto;
+    padding: 0;
+    background: url("./../assets/FoodBackgroundNomeat-1.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+  }
+  .rondomDish .dish{
+    margin: auto;
+    padding: 50px 0;
+  }
 .theMeal{
-  height:300px;
+  height:400px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  color: antiquewhite;
 }
 .theMeal a{
-  color: firebrick;
   text-decoration: none;
   padding: 10px;
+  color:antiquewhite ;
 }
 .theMeal a:hover{
   transform: scale(1.05);

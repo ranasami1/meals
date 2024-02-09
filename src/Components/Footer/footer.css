@@ -1,0 +1,26 @@
+.container-footer{
+    background-color: #383A3E;
+    max-height: auto;
+    min-height: 300px;
+    overflow-y: hidden;
+    display: flex;
+}
+.container-footer .entity{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    color:var(--mainText);
+}
+.container-footer .entity .logo{
+    margin-bottom: 10px;
+}
+.container-footer .entity a:hover{
+    color: rgba(240, 248, 255, 0.668);
+}
+.container-footer .entity a{
+    display: block;
+    text-decoration: none;
+    color: #949392;
+}
